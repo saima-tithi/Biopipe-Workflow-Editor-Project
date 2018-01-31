@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<title>Edit RNA-Seq Workflow</title>
+	</h:head>
+	<h:body>
+		<h:form>		
+ 			<p:panelGrid columns="2" cellpadding="15" style="margin-bottom:20px">
+ 				<f:facet name="header">
+        			<h:outputText value="Edit Workflow" />
+    			</f:facet>
+    			<p:panel header="Step 1: RNA-Seq Alignment" style="text-align:center">
+            		<h:panelGrid columns="1">
+               			<p:selectCheckboxMenu id="menu1" value="#{fileUploadManagedBean.selectedRnaseqAligners}" label="RNA-Seq Alignment"
+                              filter="true" filterMatchMode="startsWith" panelStyle="width:400px" required="true"
+                              requiredMessage="Please select at least one tool.">
+            				<f:selectItems value="#{fileUploadManagedBean.rnaseqAligners}" />
+        				</p:selectCheckboxMenu>
+        				<p:message for="menu1" />
+            		</h:panelGrid>
+        		</p:panel>
+        		<p:panel header="Step 2: RNA-Seq Assembly" style="text-align:center">
+            		<h:panelGrid columns="1">
+               			<p:selectCheckboxMenu id="menu2" value="#{fileUploadManagedBean.selectedRnaseqAssemblers}" label="RNA-Seq Assembly"
+                              filter="true" filterMatchMode="startsWith" panelStyle="width:400px" required="true"
+                              requiredMessage="Please select at least one tool.">
+            				<f:selectItems value="#{fileUploadManagedBean.rnaseqAssemblers}" />
+        				</p:selectCheckboxMenu>
+        				<p:message for="menu2" />
+            		</h:panelGrid>
+        		</p:panel>
+ 			</p:panelGrid>
+ 			<p:commandButton value="Done" 
+				action="#{fileUploadManagedBean.executeRnaSeqWorkflow}"
+				styleClass="ui-priority-primary" ajax="false">
+			</p:commandButton>
+		</h:form>
+	</h:body>
+</html>

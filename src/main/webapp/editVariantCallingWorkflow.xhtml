@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<title>Edit SNP/Indel Calling Workflow</title>
+	</h:head>
+	<h:body>
+		<h:form>		
+ 			<p:panelGrid columns="2" cellpadding="15" style="margin-bottom:20px">
+ 				<f:facet name="header">
+        			<h:outputText value="Edit Workflow" />
+    			</f:facet>
+    			<p:panel header="Step 1: Alignment" style="text-align:center">
+            		<h:panelGrid columns="1">
+               			<p:selectCheckboxMenu id="menu1" value="#{fileUploadManagedBean.selectedAligners}" label="Aligners"
+                              filter="true" filterMatchMode="startsWith" panelStyle="width:400px" required="true"
+                              requiredMessage="Please select at least one tool.">
+            				<f:selectItems value="#{fileUploadManagedBean.aligners}"/>
+        				</p:selectCheckboxMenu>
+        				<p:message for="menu1" />
+            		</h:panelGrid>
+        		</p:panel>
+        		<p:panel header="Step 2: Variant Calling" style="text-align:center">
+            		<h:panelGrid columns="1">
+               			<p:selectCheckboxMenu id="menu2" value="#{fileUploadManagedBean.selectedVariantCallers}" label="Variant Callers"
+                              filter="true" filterMatchMode="startsWith" panelStyle="width:400px" required="true"
+                              requiredMessage="Please select at least one tool.">
+            				<f:selectItems value="#{fileUploadManagedBean.variantCallers}" />
+        				</p:selectCheckboxMenu>
+        				<p:message for="menu2" />
+            		</h:panelGrid>
+        		</p:panel> 			
+ 			</p:panelGrid>
+
+ 			<p:commandButton value="Done" 
+				action="#{fileUploadManagedBean.executeVariantCallingWorkflow}"
+				styleClass="ui-priority-primary" ajax="false">
+			</p:commandButton>
+		</h:form>
+	</h:body>
+</html>

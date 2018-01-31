@@ -1,0 +1,29 @@
+CREATE TABLE TOOL(
+tool_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT ,
+tool_name VARCHAR(40) UNIQUE NOT NULL ,
+tool_type VARCHAR(40) NOT NULL ,
+tool_docker_image VARCHAR(60) NOT NULL);
+
+INSERT INTO `dbForBiopipeProject`.`TOOL` (`tool_id`, `tool_name`, `tool_type`, `tool_docker_image`) VALUES (NULL, 'bowtie2', 'Alignment', 'saimatithi/bowtie2:latest');
+INSERT INTO `dbForBiopipeProject`.`TOOL` (`tool_id`, `tool_name`, `tool_type`, `tool_docker_image`) VALUES (NULL, 'bwamem', 'Alignment', 'saimatithi/bwamem:latest');
+INSERT INTO `dbForBiopipeProject`.`TOOL` (`tool_id`, `tool_name`, `tool_type`, `tool_docker_image`) VALUES (NULL, 'freebayes', 'Variant Calling', 'saimatithi/freebayes:latest');
+INSERT INTO `dbForBiopipeProject`.`TOOL` (`tool_id`, `tool_name`, `tool_type`, `tool_docker_image`) VALUES (NULL, 'platypus', 'Variant Calling', 'saimatithi/platypus:latest');
+INSERT INTO `dbForBiopipeProject`.`TOOL` (`tool_id`, `tool_name`, `tool_type`, `tool_docker_image`) VALUES (NULL, 'STAR', 'RNA-Seq-Alignment', 'saimatithi/star:latest');
+INSERT INTO `dbForBiopipeProject`.`TOOL` (`tool_id`, `tool_name`, `tool_type`, `tool_docker_image`) VALUES (NULL, 'Tophat2', 'RNA-Seq-Alignment', 'saimatithi/tophat2:latest');
+INSERT INTO `dbForBiopipeProject`.`TOOL` (`tool_id`, `tool_name`, `tool_type`, `tool_docker_image`) VALUES (NULL, 'Cufflinks', 'RNA-Seq-Assembly', 'saimatithi/cufflinks:latest');
+INSERT INTO `dbForBiopipeProject`.`TOOL` (`tool_id`, `tool_name`, `tool_type`, `tool_docker_image`) VALUES (NULL, 'StringTie', 'RNA-Seq-Assembly', 'saimatithi/stringtie:latest');
+INSERT INTO `dbForBiopipeProject`.`TOOL` (`tool_id`, `tool_name`, `tool_type`, `tool_docker_image`) VALUES (NULL, 'Trinity-GenomeGuided', 'RNA-Seq-Assembly', 'saimatithi/trinity-genomeguided:latest');
+
+CREATE TABLE GALAXY_BIOPIPE_TOOL(
+table_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT ,
+galaxy_tool_name VARCHAR( 40 ) NOT NULL ,
+biopipe_tool_name VARCHAR( 40 )
+);
+
+INSERT INTO `dbForBiopipeProject`.`GALAXY_BIOPIPE_TOOL` (`table_id`, `galaxy_tool_name`, `biopipe_tool_name`) VALUES (NULL, 'bwa', 'BWA-MEM');
+INSERT INTO `dbForBiopipeProject`.`GALAXY_BIOPIPE_TOOL` (`table_id`, `galaxy_tool_name`, `biopipe_tool_name`) VALUES (NULL, 'bowtie2', 'Bowtie2');
+INSERT INTO `dbForBiopipeProject`.`GALAXY_BIOPIPE_TOOL` (`table_id`, `galaxy_tool_name`, `biopipe_tool_name`) VALUES (NULL, 'freebayes', 'Freebayes');
+INSERT INTO `dbForBiopipeProject`.`GALAXY_BIOPIPE_TOOL` (`table_id`, `galaxy_tool_name`, `biopipe_tool_name`) VALUES (NULL, 'tophat2_with_gene_annotations', 'Tophat2');
+INSERT INTO `dbForBiopipeProject`.`GALAXY_BIOPIPE_TOOL` (`table_id`, `galaxy_tool_name`, `biopipe_tool_name`) VALUES (NULL, 'rgrnastar', 'STAR');
+INSERT INTO `dbForBiopipeProject`.`GALAXY_BIOPIPE_TOOL` (`table_id`, `galaxy_tool_name`, `biopipe_tool_name`) VALUES (NULL, 'cufflinks', 'Cufflinks');
+INSERT INTO `dbForBiopipeProject`.`GALAXY_BIOPIPE_TOOL` (`table_id`, `galaxy_tool_name`, `biopipe_tool_name`) VALUES (NULL, 'stringtie', 'StringTie');

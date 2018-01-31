@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<title>Select Workflow</title>
+	</h:head>
+	<h:body>
+		<h:form enctype="multipart/form-data">
+			<p:growl id="msg"></p:growl>
+			<p:fieldset legend="Select Workflow" style="margin-bottom:20px;display:inline-block">
+				<h:panelGrid columns="2" cellpadding="5">
+					<h:outputText value = "Select a default workflow: "/>
+					<p:selectOneMenu value="#{fileUploadManagedBean.workflowType}">
+						<f:selectItem itemValue="" itemLabel="Select One" />
+	   					<f:selectItem itemValue="snp-indel" itemLabel="SNP/Indel Calling" />
+	   					<f:selectItem itemValue="rnaseq" itemLabel="RNA-Seq" />
+					</p:selectOneMenu>
+					<h:outputText value = "OR"/>
+					<h:outputText value = ""/>
+					<h:outputText value = "Upload a Biopipe workflow file (xml file): "/>
+					<p:fileUpload value="#{fileUploadManagedBean.xmlFile}"							 
+								mode="simple"
+								fileUploadListener="#{fileUploadManagedBean.fileUploadListenerXml}" 
+								update="msg">
+					</p:fileUpload>
+					<h:outputText value = "OR"/>
+					<h:outputText value = ""/>
+					<h:outputText value = "Upload a Galaxy workflow file (.ga file): "/>
+					<p:fileUpload value="#{fileUploadManagedBean.gaFile}"							 
+								mode="simple"
+								fileUploadListener="#{fileUploadManagedBean.fileUploadListenerGa}" 
+								update="msg">
+					</p:fileUpload>
+					<p:commandButton value="Done" 
+						action="#{fileUploadManagedBean.parseWorkflowFile}"
+						styleClass="ui-priority-primary" ajax="false">
+					</p:commandButton>
+				</h:panelGrid>				
+			</p:fieldset>				
+		</h:form>
+	</h:body>
+</html>

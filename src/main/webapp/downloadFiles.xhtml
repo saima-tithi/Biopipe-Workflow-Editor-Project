@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<title>Download files</title>
+	</h:head>
+	<h:body>
+		<h:form>
+			<p:panelGrid columns="2" cellpadding="15" style="margin-bottom:20px">
+				<h:outputText value="Biopile XML file:"></h:outputText>
+				<p:commandButton value="Download" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s">
+	        		<p:fileDownload value="#{fileDownloadView.xmlFile}" />
+	    		</p:commandButton>
+			</p:panelGrid> 
+			
+			<p:commandButton value="Back" 
+				action="#{fileUploadManagedBean.goHome}"
+				styleClass="ui-priority-primary" ajax="false">
+			</p:commandButton> 		
+		</h:form>
+	</h:body>
+</html>

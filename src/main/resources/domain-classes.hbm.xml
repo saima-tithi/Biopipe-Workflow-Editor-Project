@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+<hibernate-mapping>
+	<class name="com.project.hibernate.data.Tool" table="TOOL">
+		<id name="toolId" column="tool_id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="toolName" column="tool_name" type="string"/>
+		<property name="toolType" column="tool_type" type="string"/>
+		<property name="toolDockerImage" column="tool_docker_image" type="string"/>
+	</class>
+	<class name="com.project.hibernate.data.GalaxyBiopipeTool" table="GALAXY_BIOPIPE_TOOL">
+		<id name="tableId" column="table_id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="galaxyToolName" column="galaxy_tool_name" type="string"/>
+		<property name="biopipeToolName" column="biopipe_tool_name" type="string"/>
+	</class>
+</hibernate-mapping>
